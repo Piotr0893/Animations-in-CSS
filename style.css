@@ -1,0 +1,116 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	height: 100vh;
+	background-color: #678ec2;
+	overflow: hidden;
+}
+
+.sun {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	border: none;
+	border-radius: 50%;
+	animation: animate-sun 15s linear infinite;
+}
+
+@keyframes animate-sun {
+	0% {
+		transform: translate(-60vw, 180px);
+		background-color: rgba(224, 139, 124, 1);
+		-webkit-box-shadow: 0px 0px 10px 20px rgba(224, 139, 124, 1);
+		-moz-box-shadow: 0px 0px 10px 20px rgb(226, 127, 109);
+		box-shadow: 0px 0px 10px 20px rgba(224, 139, 124, 1);
+	}
+	50% {
+		transform: translate(-5vw, 40px);
+		background-color: rgba(228, 228, 24, 1);
+		-webkit-box-shadow: 0px 0px 10px 50px rgba(228, 228, 24, 1);
+		-moz-box-shadow: 0px 0px 20px 50px rgba(228, 228, 24, 1);
+		box-shadow: 0px 0px 10px 50px rgba(228, 228, 24, 1);
+	}
+	100% {
+		transform: translate(60vw, 180px);
+		background-color: rgba(224, 139, 124, 1);
+		-webkit-box-shadow: 0px 0px 10px 21px rgba(224, 139, 124, 1);
+		-moz-box-shadow: 0px 0px 10px 21px rgb(226, 127, 109);
+		box-shadow: 0px 0px 10px 21px rgba(224, 139, 124, 1);
+	}
+}
+.sun-shadow {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+
+	border-radius: 50%;
+	animation: animate-sun-shadow 15s linear infinite;
+}
+
+@keyframes animate-sun-shadow {
+	0% {
+		transform: translate(-60vw, 40px);
+		-webkit-box-shadow: 0px 256px 73px 21px rgba(224, 139, 124, 1);
+	}
+	50% {
+		transform: translate(-5vw, 0);
+		-webkit-box-shadow: 0px 456px 83px 21px rgba(228, 228, 24, 1);
+	}
+	100% {
+		transform: translate(60vw, 40px);
+		-webkit-box-shadow: 0px 256px 73px 21px rgba(224, 139, 124, 1);
+	}
+}
+.sky {
+	position: absolute;
+	top: 0vh;
+	height: 650px;
+	width: 100vw;
+	background: rgb(169, 210, 204);
+	background: linear-gradient(
+		180deg,
+		rgba(169, 210, 204, 1) 45%,
+		rgba(59, 0, 255, 1) 58%
+	);
+}
+
+.road {
+	position: relative;
+	top: 30vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.road::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(
+		90deg,
+		#fff,
+		#fff 50%,
+		transparent 50%,
+		transparent 100%
+	);
+	background-size: 50px;
+	animation: animate-road 0.3s linear infinite;
+}
+
+@keyframes animate-road {
+	0% {
+		background-position: 0px 0;
+	}
+	100% {
+		background-position: 50px 0;
+	}
+}
