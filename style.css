@@ -9,7 +9,7 @@ body {
 	justify-content: center;
 	align-self: center;
 	height: 100vh;
-	background-color: #678ec2;
+	background-color: #293b52;
 	overflow: hidden;
 }
 
@@ -24,60 +24,59 @@ body {
 
 @keyframes animate-sun {
 	0% {
-		transform: translate(-60vw, 180px);
-		background-color: rgba(224, 139, 124, 1);
-		-webkit-box-shadow: 0px 0px 10px 20px rgba(224, 139, 124, 1);
-		-moz-box-shadow: 0px 0px 10px 20px rgb(226, 127, 109);
-		box-shadow: 0px 0px 10px 20px rgba(224, 139, 124, 1);
+		transform: translate(-60vw, 140px);
+		background-color: rgba(211, 73, 49, 1);
+		-webkit-box-shadow: 0px 0px 10px 20px rgba(211, 73, 49, 1);
+		-moz-box-shadow: 0px 0px 10px 20px rgba(211, 73, 49, 1);
+		box-shadow: 0px 0px 10px 20px rgba(211, 73, 49, 1);
 	}
 	50% {
 		transform: translate(-5vw, 40px);
 		background-color: rgba(228, 228, 24, 1);
-		-webkit-box-shadow: 0px 0px 10px 50px rgba(228, 228, 24, 1);
-		-moz-box-shadow: 0px 0px 20px 50px rgba(228, 228, 24, 1);
-		box-shadow: 0px 0px 10px 50px rgba(228, 228, 24, 1);
+		-webkit-box-shadow: 0px 0px 10px 25px rgba(228, 228, 24, 1);
+		-moz-box-shadow: 0px 0px 20px 25px rgba(228, 228, 24, 1);
+		box-shadow: 0px 0px 10px 25px rgba(228, 228, 24, 1);
 	}
 	100% {
-		transform: translate(60vw, 180px);
-		background-color: rgba(224, 139, 124, 1);
+		transform: translate(60vw, 140px);
+		background-color: rgba(211, 73, 49, 1);
 		-webkit-box-shadow: 0px 0px 10px 21px rgba(224, 139, 124, 1);
-		-moz-box-shadow: 0px 0px 10px 21px rgb(226, 127, 109);
-		box-shadow: 0px 0px 10px 21px rgba(224, 139, 124, 1);
+		-moz-box-shadow: 0px 0px 10px 21px rgba(211, 73, 49, 1);
+		box-shadow: 0px 0px 10px 21px rgba(211, 73, 49, 1);
 	}
 }
 .sun-shadow {
 	position: absolute;
 	width: 150px;
 	height: 150px;
-
 	border-radius: 50%;
 	animation: animate-sun-shadow 15s linear infinite;
 }
 
 @keyframes animate-sun-shadow {
 	0% {
-		transform: translate(-60vw, 40px);
+		transform: translate(-60vw, 0px);
 		-webkit-box-shadow: 0px 256px 73px 21px rgba(224, 139, 124, 1);
 	}
 	50% {
-		transform: translate(-5vw, 0);
-		-webkit-box-shadow: 0px 456px 83px 21px rgba(228, 228, 24, 1);
+		transform: translate(-5vw, -5px);
+		-webkit-box-shadow: 0px 356px 83px 21px rgba(228, 228, 24, 1);
 	}
 	100% {
-		transform: translate(60vw, 40px);
+		transform: translate(60vw, 0px);
 		-webkit-box-shadow: 0px 256px 73px 21px rgba(224, 139, 124, 1);
 	}
 }
-.sky {
+.sky-ocean {
 	position: absolute;
 	top: 0vh;
-	height: 650px;
+	height: 550px;
 	width: 100vw;
 	background: rgb(169, 210, 204);
 	background: linear-gradient(
 		180deg,
-		rgba(169, 210, 204, 1) 45%,
-		rgba(59, 0, 255, 1) 58%
+		rgba(169, 210, 204, 1) 48%,
+		rgba(59, 0, 255, 1) 52%
 	);
 }
 
@@ -108,9 +107,367 @@ body {
 
 @keyframes animate-road {
 	0% {
-		background-position: 0px 0;
-	}
-	100% {
 		background-position: 50px 0;
 	}
+	100% {
+		background-position: 0px 0;
+	}
+}
+
+.car {
+	position: absolute;
+	top: 65vh;
+	width: 350px;
+	height: 150px;
+	background: rgb(0, 128, 111);
+	transform: rotateY(5deg);
+	border-radius: 12px;
+	animation: animate-car 15s ease-in infinite;
+}
+
+@keyframes animate-car {
+	0% {
+		transform: translate(-60vw, 0px);
+	}
+
+	50% {
+		transform: translate(-20vw, -50px);
+	}
+
+	100% {
+		transform: translate(60vw, 0px);
+	}
+}
+
+/* wheels */
+.car-wheel-left {
+	position: absolute;
+	top: 140px;
+	left: 45px;
+	border-radius: 50%;
+	transform: rotateX(-45deg);
+	width: 80px;
+	height: 50px;
+	background-color: rgba(24, 15, 15, 0.959);
+	z-index: -1;
+}
+
+.car-wheel-left::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) rotateX(-45deg);
+	background-color: gold;
+}
+.car-wheel-right {
+	position: absolute;
+	top: 140px;
+	left: 235px;
+	border-radius: 50%;
+	transform: rotateX(-45deg);
+	width: 80px;
+	height: 50px;
+	background-color: rgba(24, 15, 15, 0.959);
+}
+.car-wheel-right::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) rotateX(-45deg);
+	background-color: gold;
+}
+.car-roof {
+	position: absolute;
+	background-color: rgb(0, 128, 111);
+	inset: -5px 40px;
+	border-radius: 25px;
+}
+.car-roof b {
+	content: '';
+	position: absolute;
+	background-color: #344650;
+	inset: 10px 15px;
+	border-radius: 10px;
+}
+.car-roof b::after {
+	content: '';
+	position: absolute;
+	background-color: rgb(0, 128, 111);
+	inset: 10px 10px;
+	transform: rotateY(-55deg);
+	border-radius: 10px;
+}
+.car-roof b::before {
+	content: '';
+	position: absolute;
+	background-color: rgb(0, 128, 111);
+	inset: 0px 118px;
+}
+
+/* .wheels b {
+	position: absolute;
+	background-color: rgb(4, 61, 54);
+	inset: 10px 10px;
+	transform: rotateY(-45deg);
+	border-radius: 10px;
+} */
+
+.car-roof i {
+	position: absolute;
+	inset: 0;
+}
+
+.car-roof i::after {
+	content: '';
+	position: absolute;
+	top: 22px;
+	left: 15px;
+	width: 70px;
+	height: 8px;
+	background: rgb(0, 128, 111);
+	transform-origin: right;
+	transform: rotate(15deg);
+	box-shadow: 195px 78px rgb(0, 128, 111);
+}
+.car-roof i::before {
+	content: '';
+	position: absolute;
+	bottom: 22px;
+	left: 15px;
+	width: 70px;
+	height: 8px;
+	background: rgb(0, 128, 111);
+	transform-origin: right;
+	transform: rotate(-15deg);
+	box-shadow: 195px -78px rgb(0, 128, 111);
+}
+
+.lights-left {
+	position: absolute;
+	top: 12px;
+	left: 0px;
+	width: 7px;
+	height: 20px;
+	border-radius: 2px;
+	background: #fc3c25;
+	box-shadow: 0 102px #fc3c25;
+}
+
+.lights-right {
+	position: absolute;
+	top: 12px;
+	right: 0px;
+	width: 7px;
+	height: 20px;
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0 102px #fff;
+}
+.lights-beam {
+	position: absolute;
+	top: 5px;
+	right: -2px;
+	width: 10px;
+	height: 140px;
+	background: #0002;
+	transform-style: preserve-3d;
+	border-radius: 15px;
+}
+.lights-beam::after {
+	content: '';
+	position: absolute;
+	top: 7px;
+	left: 0px;
+	width: 170px;
+	height: 20px;
+	background: linear-gradient(90deg, #fff6, transparent);
+	transform-origin: left;
+	transform: perspective(500px) rotateY(-50deg);
+}
+
+.lights-beam::before {
+	content: '';
+	position: absolute;
+	bottom: 10px;
+	left: 0px;
+	width: 170px;
+	height: 20px;
+	background: linear-gradient(90deg, #fff6, transparent);
+	transform-origin: left;
+	transform: perspective(500px) rotateY(-50deg);
+}
+.car-shadow {
+	position: absolute;
+	top: 65vh;
+	width: 350px;
+	height: 150px;
+	transform: rotateY(5deg);
+	border-radius: 12px;
+	box-shadow: 20px 20px rgba(27, 9, 9, 0.5);
+	animation: animate-car-shadow 15s ease-in infinite;
+}
+
+@keyframes animate-car-shadow {
+	0% {
+		transform: translate(-60vw, 0px);
+		box-shadow: 40px 60px rgba(27, 9, 9, 0.5);
+	}
+	50% {
+		transform: translate(-20vw, -50px);
+		box-shadow: 0px 40px rgba(27, 9, 9, 0.5);
+	}
+	100% {
+		transform: translate(60vw, 0px);
+		box-shadow: -40px 60px rgba(27, 9, 9, 0.5);
+	}
+}
+/* truck */
+.truck {
+	position: absolute;
+	top: 65vh;
+	width: 350px;
+	height: 150px;
+	background: rgb(128, 0, 0);
+	transform: rotateY(5deg);
+	border-radius: 12px;
+	animation: animate-truck 15s linear infinite;
+}
+@keyframes animate-truck {
+	0% {
+		transform: translateX(20px) translateY(-50px);
+	}
+	35% {
+		transform: translateX(20px) translateY(-50px);
+	}
+
+	60% {
+		transform: translateX(-10px) translateY(150px);
+	}
+	80% {
+		transform: translateX(-10px) translateY(150px);
+	}
+	100% {
+		transform: translateX(20px) translateY(-50px);
+	}
+}
+/* wheels */
+.truck-wheel-left {
+	position: absolute;
+	top: 140px;
+	left: 45px;
+	border-radius: 50%;
+	transform: rotateX(-45deg);
+	width: 80px;
+	height: 50px;
+	background-color: rgba(24, 15, 15, 0.959);
+	z-index: -1;
+}
+
+.truck-wheel-left::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) rotateX(-45deg);
+	background-color: rgb(255, 38, 0);
+}
+.truck-wheel-right {
+	position: absolute;
+	top: 140px;
+	left: 235px;
+	border-radius: 50%;
+	transform: rotateX(-45deg);
+	width: 80px;
+	height: 50px;
+	background-color: rgba(24, 15, 15, 0.959);
+}
+.truck-wheel-right::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) rotateX(-45deg);
+	background-color: rgb(255, 38, 0);
+}
+.truck-roof {
+	position: absolute;
+	background-color: rgb(128, 0, 0);
+	inset: -5px 40px;
+	border-radius: 25px;
+}
+.truck-roof b {
+	content: '';
+	position: absolute;
+	background-color: #344650;
+	inset: 10px 15px;
+	border-radius: 10px;
+}
+.truck-roof b::after {
+	content: '';
+	position: absolute;
+	background-color: rgb(128, 0, 0);
+	inset: 10px 10px;
+	transform: rotateY(-55deg);
+	border-radius: 10px;
+}
+.truck-roof b::before {
+	content: '';
+	position: absolute;
+	background-color: rgb(128, 0, 0);
+	inset: 0px 118px;
+}
+
+.truck-roof i {
+	position: absolute;
+	inset: 0;
+}
+
+.truck-roof i::after {
+	content: '';
+	position: absolute;
+	top: 22px;
+	left: 15px;
+	width: 70px;
+	height: 8px;
+	background: rgb(128, 0, 0);
+	transform-origin: right;
+	transform: rotate(15deg);
+	box-shadow: 195px 78px rgb(128, 0, 0);
+}
+.truck-roof i::before {
+	content: '';
+	position: absolute;
+	bottom: 22px;
+	left: 15px;
+	width: 70px;
+	height: 8px;
+	background: rgb(128, 0, 0);
+	transform-origin: right;
+	transform: rotate(-15deg);
+	box-shadow: 195px -78px rgb(128, 0, 0);
+}
+
+.truck-shadow {
+	position: absolute;
+	top: 65vh;
+	width: 350px;
+	height: 150px;
+	background: rgb(128, 0, 0);
+	transform: rotateY(5deg);
+	border-radius: 12px;
+	animation: animate-truck-shadow 15s linear infinite;
 }
